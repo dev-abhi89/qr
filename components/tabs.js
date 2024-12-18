@@ -32,10 +32,11 @@ export default function QRCodeTabBar({ generate = () => {} }) {
       } else if (tab === "sms") {
         generate(GenerateSMSQRCode(formData.sms.phone, formData.sms.message));
         console.log("SMS QR Code Data:", formData.sms);
-      }
-      else if (tab === "Url") {
+      } else if (tab === "Url") {
         generate(GenerateURLQRCode(formData.Url));
         console.log("URL QR Code Data:", formData.Url);
+      } else {
+        generate(formData.text);
       }
     } catch (e) {
       alert(
@@ -51,7 +52,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
 
       <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
         <ul className="pb-8 flex flex-wrap -mb-px">
-          {["mobile", "email", "sms", "Url"].map((tab) => (
+          {["mobile", "email", "sms", "url", "text"].map((tab) => (
             <li
               key={tab}
               className={`me-2 ${
@@ -103,7 +104,34 @@ export default function QRCodeTabBar({ generate = () => {} }) {
             </button>
           </form>
         )}
-        {activeTab == "Url" && (
+        {activeTab === "text" && (
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit("text");
+            }}
+          >
+            <label className="block mb-2 text-gray-700">
+              Text:
+              <textarea
+                type="text"
+                className="block w-full p-2 border border-gray-300 rounded h-32"
+                value={formData.text}
+                onChange={(e) =>
+                  setFormData({ ...formData, text: e.target.value })
+                }
+                required
+              ></textarea>
+            </label>
+            <button
+              type="submit"
+              className="px-4 py-2 mt-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+            >
+              Generate QR Code
+            </button>
+          </form>
+        )}
+        {activeTab == "url" && (
           <form
             onSubmit={(e) => {
               e.preventDefault();
