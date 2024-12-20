@@ -3,6 +3,7 @@ import QRCode from "react-qr-code";
 import Tabbar from "../components/tabs";
 import { useState } from "react";
 import Nav from "../components/nav";
+import Timeline from "../components/timeline";
 
 export default function Home() {
   const [qrCode, setQRCode] = useState("value");
@@ -18,6 +19,11 @@ export default function Home() {
         <link
           href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
           rel="stylesheet"
+        />
+        <link
+          href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css"
+          rel="stylesheet"
+          type="text/css"
         />
       </Head>
 
@@ -81,11 +87,12 @@ export default function Home() {
               />
               <div className="flex flex-col justify-between p-4 leading-normal">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Direct Dial QR Codes
+                  Direct Dial QR Codes
                 </h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                Instantly connect users to phone numbers with a simple scan. Perfect for
-                business cards, promotional materials, and customer support.
+                  Instantly connect users to phone numbers with a simple scan.
+                  Perfect for business cards, promotional materials, and
+                  customer support.
                 </p>
               </div>
             </a>
@@ -100,11 +107,12 @@ export default function Home() {
               />
               <div className="flex flex-col justify-between p-4 leading-normal">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Email Integration
+                  Email Integration
                 </h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                Simplify email contact by generating QR codes that automatically
-                open a new email with pre-filled subject and message lines.
+                  Simplify email contact by generating QR codes that
+                  automatically open a new email with pre-filled subject and
+                  message lines.
                 </p>
               </div>
             </a>
@@ -152,6 +160,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Timeline />
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-6">
