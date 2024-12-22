@@ -5,6 +5,7 @@ import {
   GenerateSMSQRCode,
   GenerateURLQRCode,
 } from "../utils/utils";
+import BtnGenerate from "./generateBtn";
 
 export default function QRCodeTabBar({ generate = () => {} }) {
   const [activeTab, setActiveTab] = useState("mobile"); // Default tab
@@ -50,7 +51,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
     <div className="w-full max-w-xl p-4">
       {/* TabBar */}
 
-      <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+      <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-white-900 dark:border-gray-700">
         <ul className="pb-8 flex flex-wrap -mb-px">
           {["mobile", "email", "sms", "url", "text"].map((tab) => (
             <li
@@ -76,7 +77,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
       </div>
 
       {/* Forms */}
-      <div className="p-4">
+      <div className="p-4 bg-white">
         {activeTab === "mobile" && (
           <form
             onSubmit={(e) => {
@@ -88,7 +89,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
               Mobile Number:
               <input
                 type="text"
-                className="block w-full p-2 border border-gray-300 rounded"
+                className="block w-full p-2 bg-white text-gray-900 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
                 value={formData.mobile}
                 onChange={(e) =>
                   setFormData({ ...formData, mobile: e.target.value })
@@ -96,12 +97,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
                 required
               />
             </label>
-            <button
-              type="submit"
-              className="px-4 py-2 mt-2 text-white bg-blue-600 rounded hover:bg-blue-700"
-            >
-              Generate QR Code
-            </button>
+            <BtnGenerate />
           </form>
         )}
         {activeTab === "text" && (
@@ -115,7 +111,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
               Text:
               <textarea
                 type="text"
-                className="block w-full p-2 border border-gray-300 rounded h-32"
+                className="block w-full bg-white text-grey-900 border p-2 border border-gray-300 rounded h-32"
                 value={formData.text}
                 onChange={(e) =>
                   setFormData({ ...formData, text: e.target.value })
@@ -123,12 +119,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
                 required
               ></textarea>
             </label>
-            <button
-              type="submit"
-              className="px-4 py-2 mt-2 text-white bg-blue-600 rounded hover:bg-blue-700"
-            >
-              Generate QR Code
-            </button>
+            <BtnGenerate />
           </form>
         )}
         {activeTab == "url" && (
@@ -142,7 +133,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
               URL:
               <input
                 type="text"
-                className="block w-full p-2 border border-gray-300 rounded"
+                className="block w-full bg-white text-gray-900   p-2 border border-gray-300 rounded"
                 value={formData.Url}
                 onChange={(e) =>
                   setFormData({ ...formData, Url: e.target.value })
@@ -150,12 +141,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
                 required
               />
             </label>
-            <button
-              type="submit"
-              className="px-4 py-2 mt-2 text-white bg-blue-600 rounded hover:bg-blue-700"
-            >
-              Generate QR Code
-            </button>
+            <BtnGenerate />
           </form>
         )}
         {activeTab === "email" && (
@@ -169,7 +155,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
               Email Address:
               <input
                 type="email"
-                className="block w-full p-2 border border-gray-300 rounded"
+                className="block w-full bg-white text-gray-900   p-2 border border-gray-300 rounded"
                 value={formData.email.address}
                 onChange={(e) =>
                   setFormData({
@@ -184,7 +170,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
               Subject:
               <input
                 type="text"
-                className="block w-full p-2 border border-gray-300 rounded"
+                className="block w-full bg-white text-gray-900  p-2 border border-gray-300 rounded"
                 value={formData.email.subject}
                 onChange={(e) =>
                   setFormData({
@@ -197,7 +183,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
             <label className="block mb-2 text-gray-700">
               Message:
               <textarea
-                className="block w-full p-2 border border-gray-300 rounded"
+                className="block w-full p-2 bg-white text-gray-900  border border-gray-300 rounded"
                 value={formData.email.body}
                 onChange={(e) =>
                   setFormData({
@@ -207,12 +193,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
                 }
               ></textarea>
             </label>
-            <button
-              type="submit"
-              className="px-4 py-2 mt-2 text-white bg-blue-600 rounded hover:bg-blue-700"
-            >
-              Generate QR Code
-            </button>
+            <BtnGenerate />
           </form>
         )}
         {activeTab === "sms" && (
@@ -226,7 +207,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
               Phone Number:
               <input
                 type="text"
-                className="block w-full p-2 border border-gray-300 rounded"
+                className="block w-full p-2 bg-white text-gray-900  border border-gray-300 rounded"
                 value={formData.sms.phone}
                 onChange={(e) =>
                   setFormData({
@@ -240,7 +221,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
             <label className="block mb-2 text-gray-700">
               Message:
               <textarea
-                className="block w-full p-2 border border-gray-300 rounded"
+                className="block w-full p-2 border bg-white text-gray-900  border-gray-300 rounded"
                 value={formData.sms.message}
                 onChange={(e) =>
                   setFormData({
@@ -250,12 +231,7 @@ export default function QRCodeTabBar({ generate = () => {} }) {
                 }
               ></textarea>
             </label>
-            <button
-              type="submit"
-              className="px-4 py-2 mt-2 text-white bg-blue-600 rounded hover:bg-blue-700"
-            >
-              Generate QR Code
-            </button>
+            <BtnGenerate />
           </form>
         )}
       </div>

@@ -4,6 +4,12 @@ import Tabbar from "../components/tabs";
 import { useState } from "react";
 import Nav from "../components/nav";
 import Timeline from "../components/timeline";
+import Card from "../components/card";
+import CardHover from "../components/cardHover";
+import IconEmail from "../components/icons/email";
+import IconMessage from "../components/icons/message";
+import IconPhoneCall from "../components/icons/phone";
+import FAQ from "../components/faq";
 
 export default function Home() {
   const [qrCode, setQRCode] = useState("value");
@@ -31,7 +37,7 @@ export default function Home() {
       <Nav />
 
       {/* Hero Section */}
-      <section className="bg-blue-600 text-white py-12">
+      <section className="bg-blue-600 text-white py-12 hover:shadow-lg">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-extrabold mb-4">
             QR Code Generator Made Simple
@@ -73,95 +79,34 @@ export default function Home() {
       <section className="bg-gray-100 py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-8">
-            Why Use Our QR Code Generator?
+            What QR Code Will You Create Today?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-8">
-            <a
-              href="#"
-              className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-            >
-              <img
-                className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                src="/images/img.jpg"
-                alt=""
-              />
-              <div className="flex flex-col justify-between p-4 leading-normal">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  Direct Dial QR Codes
-                </h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Instantly connect users to phone numbers with a simple scan.
-                  Perfect for business cards, promotional materials, and
-                  customer support.
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-            >
-              <img
-                className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                src="/images/img.jpg"
-                alt=""
-              />
-              <div className="flex flex-col justify-between p-4 leading-normal">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  Email Integration
-                </h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Simplify email contact by generating QR codes that
-                  automatically open a new email with pre-filled subject and
-                  message lines.
-                </p>
-              </div>
-            </a>
-          </div>
+
           <div className="grid  grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="bg-white shadow-md p-6 rounded-lg text-center">
-              <img
-                src="/images/img.jpg"
-                alt="Mobile Friendly"
-                className="w-16 mx-auto mb-4"
-              />
-              <h3 className="font-bold text-lg">Mobile Friendly</h3>
-              <p className="text-sm text-gray-600">
-                Generate QR codes optimized for smartphones.
-              </p>
-            </div>
 
-            {/* Card 2 */}
-            <div className="bg-white shadow-md p-6 rounded-lg text-center">
-              <img
-                src="/images/img1.jpg"
-                alt="Email Integration"
-                className="w-16 mx-auto mb-4"
-              />
-              <h3 className="font-bold text-lg"> Website QR Codes</h3>
-              <p className="text-sm text-gray-600">
-                Create QR codes for email addresses with pre-filled subjects and
-                messages.
-              </p>
-            </div>
+            <CardHover
+              title="Mobile Friendly"
+              content="Generate QR codes optimized for smartphones."
+              Icon={() => <IconMessage />}
+            />
+            <CardHover
+              title="Effortless Email QR Codes"
+              content="Generate QR codes that pre-fill emails with subjects and messages instantly."
+              Icon={() => <IconEmail />}
+            />
 
-            {/* Card 3 */}
-            <div className="bg-white shadow-md p-6 rounded-lg text-center">
-              <img
-                src="images/img1.jpg"
-                alt="SMS Ready"
-                className="w-16 mx-auto mb-4"
-              />
-              <h3 className="font-bold text-lg">SMS Ready</h3>
-              <p className="text-sm text-gray-600">
-                Generate QR codes for quick SMS messages.
-              </p>
-            </div>
+            <CardHover
+              title="Quick-Call QR Codes"
+              content="Let users dial numbers instantly—ideal for business cards and promotions."
+              Icon={() => <IconPhoneCall />}
+            />
           </div>
         </div>
       </section>
 
       <Timeline />
+      <FAQ />
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-6">
