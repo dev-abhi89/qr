@@ -1,7 +1,7 @@
 import Head from "next/head";
 import QRCode from "react-qr-code";
 import Tabbar from "../components/tabs";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Nav from "../components/nav";
 import Timeline from "../components/timeline";
 import Card from "../components/card";
@@ -16,7 +16,39 @@ export default function Home() {
   function generate(val) {
     setQRCode(val);
   }
+  const qrRef = useRef(null);
 
+  const downloadQRCode = () => {
+    const svg = qrRef.current.querySelector("svg");
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const xml = new XMLSerializer().serializeToString(svg);
+    const svg64 = btoa(xml);
+    const image64 = "data:image/svg+xml;base64," + svg64;
+
+    const img = new Image();
+    img.onload = () => {
+      const padding = 20; // Add padding
+      canvas.width = img.width + padding * 2;
+      canvas.height = img.height + padding * 2;
+
+      // Fill the canvas with white color
+      ctx.fillStyle = "white";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the image with padding
+      ctx.drawImage(img, padding, padding);
+
+      const png = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = png;
+      link.download = "QRCode.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+    img.src = image64;
+  };
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
       <Head>
@@ -60,16 +92,24 @@ export default function Home() {
 
           {/* QR Code Display */}
           <div className="flex items-center justify-center w-full md:w-1/2 p-4">
-            <div className="bg-white shadow-lg p-6 rounded-lg">
-              <QRCode
-                size={256}
-                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                value={qrCode}
-                viewBox={`0 0 256 256`}
-              />
-              <p className="text-center text-sm text-gray-600 mt-2">
-                Your generated QR code will appear here.
-              </p>
+            <div className="flex flex-col items-center w-full">
+              <div className="bg-white shadow-lg p-6 rounded-lg" ref={qrRef}>
+                <QRCode
+                  size={256}
+                  style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                  value={qrCode}
+                  viewBox={`0 0 256 256`}
+                />
+                <p className="text-center text-sm text-gray-600 mt-2">
+                  Your generated QR code will appear here.
+                </p>
+              </div>
+              <button
+                onClick={downloadQRCode}
+                className="px-6 py-3 mt-6 text-white bg-blue-600 rounded-xl hover:shadow-lg hover:scale-115 hover:bg-blue-700"
+              >
+                Download QR Code
+              </button>
             </div>
           </div>
         </div>

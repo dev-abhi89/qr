@@ -3,110 +3,104 @@ import { useState } from "react";
 const FAQ = () => {
   const faqs = [
     {
-      question: "What is a generator for QR codes?",
+      question: "What does it mean by generator for QR codes?",
       answer:
-        "An online tool for creating customisable QR Codes for a variety of uses is called a QR Code generator. A QR Code generator provides a straightforward method for sharing a website link, displaying a PDF, connecting people to WiFi, and storing multimedia content like music or videos. It is frequently utilised for personal, professional, and marketing purposes.",
+        "Different uses of quick respond codes can be created on an online tool referred to as the QR Code generator. A QR Code generator makes it easy to offer a website address, show a PDF, offer WiFi access, and add multimedia like music or videos. This may include, but is not limited to, use as a personal, professional, and advertising tool.",
     },
     {
       question: "Is it free to use QR codes?",
       answer:
-        "Yes, creating and using static QR codes is totally free. QR codes for URLs, vCards, emails, SMS, social media connections, WiFi passwords, and Bitcoin addresses are a few examples. Static QR Codes are always working once they are created. Always test them before printing, though, as they cannot be changed or amended.",
+        "Indeed, it means that generating and utilizing static QR codes do not cost a lot. People send QR codes for URLs, vCards, emails, text messages, social connections, WiFi passwords, and Bitcoin addresses, to mention a few. Static QR Codes are always active when they are developed and there is no extra effort needed to get them going. But always input them through the printer instead of typing because they cannot be edited once created.",
     },
     {
-      question: "Is it possible to use QR Codes for business?",
+      question: "Can QR Codes work for business?",
       answer:
-        "Of course! Because of their great versatility, QR codes are widely utilised in arketing campaigns, and promotional flyers.",
+        "Of course! Due to their huge flexibility QR codes are used frequently in many marketisation endeavours and promotional fliers.",
     },
     {
-      question: "What kinds of datacan be stored in a QR code?",
+      question: "What information can be placed into a QR code?",
       answer:
-        "Numerous types of data can be stored in QR codes, such as:URLs to landing pages, social media accounts, or websites.\nNames, phone numbers, and email addresses are examples of contact details.\nPDF documents, including user manuals, menus, and brochures.\nInformation on the event, including dates, venues, and RSVP links.\nmultimedia files, such as music, images, and movies.\nPayment details, such as UPI IDs or Bitcoin wallet addresses.business applications like customer engagement, product packaging,",
+        "Numerous types of data can be stored in QR codes, such as: Web links to specific landing pages, company’s social media pages, or its official website. Contact information includes name and address, phone number and email address. Handbooks, menus, and brochures in Portable Document Format or PDF for short. Any detail about the event, including; dates, venues, and links to the RSVP either on the website or social media accounts. Documents, text documents, multimedia files like; music files, picture files, and movie files. For example, payment instructions like UPI IDs or Bitcoin wallet addresses, and more in using business applications like customer interactions, product branding.",
     },
     {
-      question: "Can I track and analyze QR Code scans?",
+      question: "Are QR Code scans traceable and analyzable?",
       answer:
-        "Yes, dynamic QR Codes allow you to track the number of scans, the geographic location of users, time of scans, and even the device operating systems. These insights are invaluable for optimizing marketing campaigns and understanding audience behavior.",
+        "Indeed, it is possible to publicize more dynamic features of the QR Codes; the number of scans the geographic location of the user, time of scan and the operating systems of the devices used in scanning. It is especially helpful to get these ideas when all you want is to tailor your next marketing campaign or observe the activity of your target audience.",
     },
     {
-      question: "Do QR Codes have an expiration date?",
+      question: "Can a QR Code ever go bad?",
       answer:
-        "Static QR Codes do not expire and remain functional indefinitely unless the linked content becomes invalid. Dynamic QR Codes, on the other hand, can be updated and controlled at any time, making them more reliable for long-term use.",
+        "Static QR Codes do not fade from the scene and stay in function, functionlessly until their linked information becomes inaccessible. On the other hand, Dynamic QR Codes can be frequently changed or can also be put under control anytime that is why it is a better option for long-run use.",
     },
     {
-      question: "What is the difference between static and dynamic QR Codes?",
+      question:
+        "It is important that I know the difference between a static and a dynamic QR Code.",
       answer:
-        "Static QR Codes: Fixed and uneditable after creation, suitable for simple tasks like sharing a URL.\nDynamic QR Codes: Editable even after printing, offering features like link updates, analytics, and better control.",
+        "Static QR Codes: Permanent and cannot be changed even with the help of the correct formatting tools, suitable for single purpose actions such as sharing a link. Dynamic QR Codes: It is possible to edit even after printing, comes with advance features like link updates, analytics and improved control.",
     },
     {
-      question: "How can I manage QR Codes efficiently?",
+      question: "What is the optimum way of handling QR Codes?",
       answer:
-        "With a PRO account, you can manage QR Codes seamlessly. Features include content editing, batch creation, template designs, custom short URLs, and access for multiple team members.",
+        "If you have a PRO account, then you can easily deal with the QR Codes. Those are the provided elements: content editing, creating multiple pages at once, pre-designed templates, short link looks, and the ability to share the account with the team.",
     },
     {
-      question: "Can I create multiple QR Codes for the same content?",
+      question:
+        "Are it possible to create many times the same QR Code with the same content as the other?",
       answer:
-        "Yes, QR Code standards allow for various versions and error correction levels. This ensures flexibility in creating QR Codes for the same content with different designs or sizes while maintaining readability.",
+        "Yes, QR Code standards permit different versions and a number of levels of error correction. This also helps in flexibility of developing qr codes for that same content but with different design or sizes while still being easily read.",
     },
     {
-      question: "Is it possible to customize QR Codes with logos and branding?",
+      question: "Can logo and branding be applied on QR Code?",
       answer:
-        "Yes, you can personalize your QR Codes by adding logos, icons, or brand colors. This enhances brand visibility and improves user engagement. However, advanced customization features are available in the PRO version.",
+        "Yes you can add logos, icons or your brand color to the standard codes to make them unique. This increases the chance of the brand to be seen by the users and increases the interaction between users and the site. However, they are many more options and advanced choices possible thanks to the PRO version.",
     },
     {
-      question: "Do QR Codes need to follow the black-and-white color scheme?",
+      question: "Is the use of black and white colours required for QR Codes?",
       answer:
-        "Not at all! QR Codes can be designed with any color combination, provided there’s enough contrast for scanning. Use your brand colors to create visually appealing QR Codes while ensuring functionality.",
+        "Not at all! Significantly, QR Codes can be developed using any number of color interpositions, contingent on the fact that the resultant interpositions should be scannable. Ensure the functionality of QR codes when designing them to incorporate your brand colors to generate appealing designs.",
     },
     {
-      question: "Can I edit a QR Code after it’s printed?",
+      question:
+        "Is it possible to modify a QR Code after the latter has been printed?",
       answer:
-        "Dynamic QR Codes can be edited to update links, fix typos, or change the content even after printing. This eliminates the need to reprint and saves costs.",
+        "This kind of QR codes can be easily modified, for instance, to change the link, correct a typo or modify the content once the Dynamic QR Codes have been printed. This helps avoid instance of having to reprint and in the process, save money.",
     },
     {
-      question: "How do I generate large quantities of QR Codes?",
+      question: "Where are large amounts of QR Codes produced?",
       answer:
-        "For bulk QR Code generation, use a QR Code API. This feature allows businesses to automate the creation of multiple QR Codes with consistent branding, color, and design elements.",
+        "There are also many APIs on the web for those who want to generate many codes at once for a single QR Code. This feature enables companies to generate several QR Codes at the same time, all of which share the same style as well as brand colors and graphics.",
     },
     {
-      question: "What graphic formats are supported for QR Code downloads?",
+      question: "In what graphic formats are the QR Codes downloadable?",
       answer:
-        "QR Codes can be downloaded in various formats, including high-resolution JPG, PNG, SVG, and EPS. EPS files are available in black and white for professional printing needs.",
+        "However, to use QR codes, it can be downloaded in different format such as JPG, PNG, SVG and EPS. EPS files are usually printable in black and white if you wish to take professional print outs.",
     },
     {
       question: "What should I know before printing QR Codes?",
       answer:
-        "Ensure that the QR Code size is appropriate for its intended use, with a minimum size of 2 x 2 cm for smaller materials. Use contrasting colors for better readability, and always test the QR Code before printing.",
+        "Make sure that the QR Code’s dimension is accurate to its purpose, for smaller material, make it at least 2 x 2 cm in size. This makes it easier to read particularly if you are using neighboring colors This should however, always be checked before being printed.",
     },
     {
-      question: "How can I scan a QR Code using my smartphone?",
+      question: "How can I work my smartphone in order to scan a QR Code?",
       answer:
-        "Simply open your smartphone’s camera app and hover it over the QR Code. A notification will appear with the content or action. If this feature is not enabled, you can download a free QR Code scanner app from your app store.",
-    },
-    {
-      question: "Can QR Codes be scanned without an app?",
-      answer:
-        "Yes, modern smartphones come with built-in QR Code scanning capabilities in their camera apps. No additional app is required.",
-    },
-    {
-      question: "Is there a limit to how many times a QR Code can be scanned?",
-      answer:
-        "No, QR Codes can be scanned an unlimited number of times, whether static or dynamic.",
-    },
-    {
-      question: "Why might a QR Code fail to scan?",
-      answer:
-        "Common issues include poor contrast, blurry printing, or incorrect size. To ensure functionality, keep the foreground darker than the background and test thoroughly before use.",
+        "All you need to do is launch the camera on your smartphone and point it over the QR Code. There will be a notification with the content or action or in other practical uses. If you cannot see this feature, you can download a free app of QR Code Scanner from your mobile application store.",
     },
     {
       question:
-        "What is the recommended size for QR Codes on different materials?",
+        "Is there another way to point a QR code and scan, without having an app?",
       answer:
-        "For business cards or flyers, the minimum size is 2 x 2 cm (0.8 x 0.8 in). For larger formats like posters or billboards, increase the size proportionally to maintain readability.",
+        "Yes, new generation Android or IOS smartphones are basically equipped with the ability to scan a QR Code in their application settings – camera. There is no other app needed to be installed.",
     },
     {
-      question: "How can businesses maximize the effectiveness of QR Codes?",
+      question:
+        "Can a QR Code be scanned, numerous times, is there a limit of how many times it can be scanned?",
       answer:
-        "To enhance user engagement, use dynamic QR Codes for analytics, customize them with brand elements, and place them strategically on marketing materials. Always provide clear instructions on how to scan the QR Code.",
+        "Fortunately, QR Codes could be scanned any number of times, it could be barcodes static or dynamic.",
+    },
+    {
+      question: "What could be a reason for a QR Code not to scan?",
+      answer:
+        "Some of the problems that clients face from specified printers may include low contrast, blurred print or even wrong size. For functionality; make sure the color found on the foreground is darker than the color on the background and always preview before use.",
     },
   ];
 
