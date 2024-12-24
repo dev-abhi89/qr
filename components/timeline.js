@@ -1,8 +1,8 @@
 export default function Timeline() {
   return (
-    <section className="bg-gray-100 mt-11 mb-0">
+    <section className="bg-gray-100 mt-11 mb-0 mx-4 ">
       <div className="container pt-11 pb-10 lg:pb-9 lg:pb-0 relative mx-auto z-[1]">
-        <h2 className="text-center pt-0 mb-3 hover:  font-medium text-xl lg:text-2xl">
+        <h2 className="text-center pt-0 mb-3 hover:text-gray-600 transition-transform duration-300  font-medium text-xl lg:text-2xl">
           3 Simple Steps to Creating a Free QR Code
         </h2>
         <p className="text-center text-gray-500 mb-5 lg:pb-5">
@@ -11,7 +11,7 @@ export default function Timeline() {
         </p>
 
         {/* Stepper Rows */}
-        <div className="stepper-row flex flex-col lg:flex-row  mx-auto max-w-fit">
+        <div className="stepper-row flex flex-col lg:flex-row justify-center px-12 pt-12   mx-auto max-w-fit">
           {/* Step 1 */}
           <div className="lg:w-1/3 flex flex-col justify-start mb-5">
             <img
@@ -35,7 +35,7 @@ export default function Timeline() {
             </p>
           </div>
         </div>
-        <div className="stepper-row flex flex-col lg:flex-row px-12 pt-12  mx-auto max-w-fit">
+        <div className="stepper-row flex flex-col justify-center lg:flex-row px-12 pt-12  mx-auto max-w-fit">
           {/* Step 1 */}
           <div className="lg:w-1/2 flex flex-col justify-start">
             <h3 className="text-lg font-medium mb-2">
@@ -58,7 +58,7 @@ export default function Timeline() {
             />
           </div>
         </div>
-        <div className="stepper-row flex flex-col lg:flex-row  mx-auto max-w-fit">
+        <div className="stepper-row flex flex-col lg:flex-row justify-center px-12 pt-12  mx-auto max-w-fit">
           {/* Step 1 */}
           <div className="lg:w-1/4 flex flex-col justify-start mb-5">
             <img
